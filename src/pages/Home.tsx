@@ -1,0 +1,368 @@
+import { motion, useScroll, useTransform, animate } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
+import FadeInWhenVisible from "@/components/ui/FadeInWhenVisible";
+import SectionLabel from "@/components/ui/SectionLabel";
+import PearlButton from "@/components/ui/PearlButton";
+
+/* ─── Hero ─── */
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      delay: i * 0.08,
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
+const imageVariants = {
+  hidden: { clipPath: "inset(100% 0% 0% 0%)", scale: 1.05 },
+  visible: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    scale: 1,
+    transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
+  },
+};
+
+function StatCounter({ target, label }: { target: number; label: string }) {
+  const [count, setCount] = useState(0);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) {
+      setCount(target);
+      return;
+    }
+    const controls = animate(0, target, {
+      duration: 1.8,
+      ease: "easeOut",
+      onUpdate: (v) => setCount(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [target, reduced]);
+
+  return (
+    <div>
+      <span className="font-display text-4xl lg:text-5xl text-primary font-semibold">
+        {count.toLocaleString()}+
+      </span>
+      <p className="font-body text-sm text-muted mt-1">{label}</p>
+    </div>
+  );
+}
+
+function Hero() {
+  const reduced = useReducedMotion();
+  const headline = "Your smile, designed with precision.".split(" ");
+
+  return (
+    <section className="min-h-screen flex items-center pt-20 pb-24 lg:pb-36">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
+          {/* Text — 60% */}
+          <div className="lg:col-span-3">
+            <SectionLabel>Pearl Dental Studio</SectionLabel>
+            <h1 className="text-[clamp(52px,6vw,96px)] leading-[1.08] font-display font-semibold text-charcoal mb-6">
+              {reduced ? (
+                "Your smile, designed with precision."
+              ) : (
+                headline.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    custom={i}
+                    variants={wordVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="inline-block mr-[0.3em]"
+                  >
+                    {word}
+                  </motion.span>
+                ))
+              )}
+            </h1>
+            <motion.p
+              className="font-body text-base lg:text-lg text-muted max-w-xl mb-8 leading-relaxed"
+              initial={reduced ? {} : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              Pearl Dental Studio combines modern clinical care with a calm,
+              comfortable experience — built for patients who value both health
+              and time.
+            </motion.p>
+            <motion.div
+              className="flex flex-wrap gap-4"
+              initial={reduced ? {} : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <PearlButton to="/contact">Book an Appointment</PearlButton>
+              <PearlButton to="/services" variant="ghost">
+                Explore Our Services
+              </PearlButton>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              className="flex gap-10 lg:gap-14 mt-14 pt-8 border-t border-border"
+              initial={reduced ? {} : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+            >
+              <StatCounter target={12} label="Years Experience" />
+              <StatCounter target={4800} label="Happy Patients" />
+              <StatCounter target={98} label="Satisfaction %" />
+            </motion.div>
+          </div>
+
+          {/* Image — 40% */}
+          <div className="lg:col-span-2">
+            <motion.div
+              variants={reduced ? undefined : imageVariants}
+              initial="hidden"
+              animate="visible"
+              className="overflow-hidden rounded-lg aspect-[3/4]"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80"
+                alt="Modern dental clinic interior with clean white surfaces and natural light"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Services Preview ─── */
+
+const treatments = [
+  { name: "General Dentistry", desc: "Comprehensive check-ups, cleanings, and preventive care for lasting oral health." },
+  { name: "Cosmetic Dentistry", desc: "Whitening, veneers, and smile makeovers designed for natural-looking results." },
+  { name: "Orthodontics", desc: "Braces and clear aligners tailored to your lifestyle and treatment goals." },
+  { name: "Dental Implants", desc: "Permanent tooth replacement with titanium implants that look and feel natural." },
+  { name: "Pediatric Care", desc: "Gentle, child-friendly dental care in a calm and reassuring environment." },
+  { name: "Emergency Care", desc: "Same-day treatment for urgent dental issues — pain, fractures, and infections." },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+};
+
+function ServicesPreview() {
+  return (
+    <section className="py-24 lg:py-36">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-24">
+        <FadeInWhenVisible>
+          <SectionLabel>Treatments</SectionLabel>
+          <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-14">
+            What we treat
+          </h2>
+        </FadeInWhenVisible>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {treatments.map((t) => (
+            <motion.div key={t.name} variants={itemVariants}>
+              <motion.div
+                className="group cursor-pointer"
+                whileHover={{ scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
+                whileTap={{ scale: 0.99 }}
+              >
+                <h3 className="font-display text-2xl text-charcoal mb-2">{t.name}</h3>
+                <p className="font-body text-sm text-muted leading-relaxed mb-3">
+                  {t.desc}
+                </p>
+                <Link
+                  to="/services"
+                  className="font-body text-sm text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all duration-200"
+                >
+                  Learn more
+                  <span className="text-lg">→</span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── About Preview ─── */
+
+function AboutPreview() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  return (
+    <section className="py-24 lg:py-36 bg-surface" ref={ref}>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+          {/* Image with parallax */}
+          <FadeInWhenVisible direction="left">
+            <div className="overflow-hidden rounded-lg aspect-[4/5]">
+              <motion.div style={reduced ? {} : { y }} className="w-full h-full">
+                <img
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
+                  alt="Dentist consulting with a patient in a modern clinic"
+                  className="object-cover w-full h-full scale-110"
+                  loading="lazy"
+                />
+              </motion.div>
+            </div>
+          </FadeInWhenVisible>
+
+          {/* Text */}
+          <FadeInWhenVisible delay={0.15}>
+            <SectionLabel>About Us</SectionLabel>
+            <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-6">
+              Care built on trust, not just technique
+            </h2>
+            <p className="font-body text-base text-muted leading-relaxed mb-4">
+              At Pearl Dental Studio, we believe dental care should feel personal.
+              Our clinic was founded on the idea that every patient deserves
+              unhurried attention, honest guidance, and treatment plans that fit
+              their life — not just their teeth.
+            </p>
+            <p className="font-body text-base text-muted leading-relaxed mb-8">
+              From the moment you walk in, you'll notice the difference: a space
+              designed for calm, a team trained to listen, and technology that
+              makes every visit efficient and comfortable. We're not a factory —
+              we're your neighbourhood dental studio.
+            </p>
+            <PearlButton to="/about" variant="ghost">
+              Our Story
+            </PearlButton>
+          </FadeInWhenVisible>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Testimonials ─── */
+
+const testimonials = [
+  {
+    quote: "I've never felt this comfortable at a dental clinic. Dr. Menon explained every step, and the results with my aligners are incredible.",
+    name: "Sneha Kapoor",
+    treatment: "Orthodontics",
+    rating: 5,
+  },
+  {
+    quote: "The implant procedure was smoother than I expected. Dr. Seth's precision and the post-op care were beyond impressive.",
+    name: "Rajesh Malhotra",
+    treatment: "Dental Implant",
+    rating: 5,
+  },
+  {
+    quote: "My daughter actually looks forward to her dental visits now. The pediatric team is gentle, patient, and wonderful with kids.",
+    name: "Ananya Sharma",
+    treatment: "Pediatric Dentistry",
+    rating: 5,
+  },
+  {
+    quote: "Got my veneers done here and the transformation is unreal. Natural-looking, painless, and done in just two visits.",
+    name: "Vikram Desai",
+    treatment: "Cosmetic Veneers",
+    rating: 5,
+  },
+];
+
+function Testimonials() {
+  return (
+    <section className="py-24 lg:py-36">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-24">
+        <FadeInWhenVisible>
+          <SectionLabel>Patient Stories</SectionLabel>
+          <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-14">
+            What our patients say
+          </h2>
+        </FadeInWhenVisible>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {testimonials.map((t, i) => (
+            <motion.div key={i} variants={itemVariants} className={i === 3 ? "md:col-start-2 lg:col-start-auto" : ""}>
+              <div className="flex gap-1 mb-4">
+                {Array.from({ length: t.rating }).map((_, j) => (
+                  <span key={j} className="text-primary text-sm">★</span>
+                ))}
+              </div>
+              <blockquote className="font-body text-base text-charcoal leading-relaxed mb-5">
+                "{t.quote}"
+              </blockquote>
+              <p className="font-body text-sm font-medium text-charcoal">{t.name}</p>
+              <p className="font-body text-xs text-muted">{t.treatment}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── CTA Banner ─── */
+
+function CTABanner() {
+  return (
+    <section className="py-24 lg:py-36 bg-surface">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-10 xl:px-24 text-center">
+        <FadeInWhenVisible>
+          <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-6">
+            Ready for a healthier smile?
+          </h2>
+          <p className="font-body text-base text-muted mb-8 max-w-md mx-auto">
+            Schedule your visit today and experience dental care the way it should be.
+          </p>
+          <PearlButton to="/contact">Book an Appointment</PearlButton>
+        </FadeInWhenVisible>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Page ─── */
+
+const Home = () => (
+  <motion.div
+    initial={{ opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }}
+    exit={{ opacity: 0, y: -8, transition: { duration: 0.25, ease: "easeIn" } }}
+  >
+    <Hero />
+    <ServicesPreview />
+    <AboutPreview />
+    <Testimonials />
+    <CTABanner />
+  </motion.div>
+);
+
+export default Home;

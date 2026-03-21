@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 30 33% 95%;
+    --color-surface: 33 18% 91%;
+    --color-primary: 28 24% 34%;
+    --color-secondary: 180 18% 36%;
+    --color-text: 0 0% 17%;
+    --color-muted: 20 4% 46%;
+    --color-border: 30 12% 82%;
+
+    --background: var(--color-bg);
+    --foreground: var(--color-text);
+    --card: var(--color-surface);
+    --card-foreground: var(--color-text);
+    --popover: var(--color-bg);
+    --popover-foreground: var(--color-text);
+    --primary: var(--color-primary);
+    --primary-foreground: 30 33% 95%;
+    --secondary: var(--color-secondary);
+    --secondary-foreground: 30 33% 95%;
+    --muted: var(--color-surface);
+    --muted-foreground: var(--color-muted);
+    --accent: var(--color-surface);
+    --accent-foreground: var(--color-text);
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-primary);
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-charcoal;
+    line-height: 1.12;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-2px] left-0 w-0 h-[1px] transition-all duration-300 ease-in-out;
+    background: hsl(var(--color-primary));
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
