@@ -68,7 +68,7 @@ function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           {/* Text — 60% */}
           <div className="lg:col-span-3">
-            <SectionLabel>Pearl Dental Studio</SectionLabel>
+            <SectionLabel>Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre</SectionLabel>
             <h1 className="text-[clamp(52px,6vw,96px)] leading-[1.08] font-display font-semibold text-charcoal mb-6">
               {reduced ? (
                 "Your smile, designed with precision."
@@ -93,7 +93,7 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Pearl Dental Studio combines modern clinical care with a calm,
+              Dr. Gaurav Bhalla's Dental Clinic combines modern clinical care with a calm,
               comfortable experience — built for patients who value both health
               and time.
             </motion.p>
@@ -116,7 +116,7 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.6 }}
             >
-              <StatCounter target={12} label="Years Experience" />
+              <StatCounter target={21} label="Years Experience" />
               <StatCounter target={4800} label="Happy Patients" />
               <StatCounter target={98} label="Satisfaction %" />
             </motion.div>
@@ -227,7 +227,7 @@ function AboutPreview() {
               <motion.div style={reduced ? {} : { y }} className="w-full h-full">
                 <img
                   src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80"
-                  alt="Dentist consulting with a patient in a modern clinic"
+                  alt="Dr. Gaurav Bhalla consulting with a patient"
                   className="object-cover w-full h-full scale-110"
                   loading="lazy"
                 />
@@ -242,16 +242,16 @@ function AboutPreview() {
               Care built on trust, not just technique
             </h2>
             <p className="font-body text-base text-muted leading-relaxed mb-4">
-              At Pearl Dental Studio, we believe dental care should feel personal.
-              Our clinic was founded on the idea that every patient deserves
-              unhurried attention, honest guidance, and treatment plans that fit
-              their life — not just their teeth.
+              Dr. Gaurav Bhalla brings over 21 years of dental expertise to every patient.
+              At our Sector 40D clinic, we believe dental care should feel personal —
+              every patient deserves unhurried attention, honest guidance, and treatment
+              plans that truly fit their life.
             </p>
             <p className="font-body text-base text-muted leading-relaxed mb-8">
               From the moment you walk in, you'll notice the difference: a space
-              designed for calm, a team trained to listen, and technology that
-              makes every visit efficient and comfortable. We're not a factory —
-              we're your neighbourhood dental studio.
+              designed for calm, a doctor trained to listen, and care that makes
+              every visit efficient and comfortable. We are not a factory —
+              we are your neighbourhood dental studio.
             </p>
             <PearlButton to="/about" variant="ghost">
               Our Story
@@ -267,27 +267,27 @@ function AboutPreview() {
 
 const testimonials = [
   {
-    quote: "I've never felt this comfortable at a dental clinic. Dr. Menon explained every step, and the results with my aligners are incredible.",
-    name: "Sneha Kapoor",
-    treatment: "Orthodontics",
+    quote: "Amazing dentist with abundant knowledge and long experience. Highly recommend Dr. Bhalla to everyone.",
+    name: "Google Review",
+    treatment: "General Dentistry",
     rating: 5,
   },
   {
-    quote: "The implant procedure was smoother than I expected. Dr. Seth's precision and the post-op care were beyond impressive.",
-    name: "Rajesh Malhotra",
-    treatment: "Dental Implant",
+    quote: "He insisted my tooth could be saved and started treatment. Over the course of 1.5 months, he worked tirelessly to preserve it.",
+    name: "Ekant Kumar",
+    treatment: "Tooth Restoration",
     rating: 5,
   },
   {
-    quote: "My daughter actually looks forward to her dental visits now. The pediatric team is gentle, patient, and wonderful with kids.",
-    name: "Ananya Sharma",
-    treatment: "Pediatric Dentistry",
+    quote: "He is a gem of a person. My friend was suffering from severe toothache at the airport — Dr. Bhalla helped him out with a prescription, free of cost.",
+    name: "Amy Plays Groove",
+    treatment: "Emergency Care",
     rating: 5,
   },
   {
-    quote: "Got my veneers done here and the transformation is unreal. Natural-looking, painless, and done in just two visits.",
-    name: "Vikram Desai",
-    treatment: "Cosmetic Veneers",
+    quote: "Amazing Dr. Bhalla with expertise in all tooth issues. Treated my wife well with the best support. Strongly recommended.",
+    name: "Rohit Thakur",
+    treatment: "General Dentistry",
     rating: 5,
   },
 ];
@@ -339,8 +339,17 @@ function CTABanner() {
           <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-6">
             Ready for a healthier smile?
           </h2>
-          <p className="font-body text-base text-muted mb-8 max-w-md mx-auto">
+          <p className="font-body text-base text-muted mb-2 max-w-md mx-auto">
             Schedule your visit today and experience dental care the way it should be.
+          </p>
+          <p className="font-body text-sm text-muted mb-2">
+            📍 SCO 218, 1st Floor, Sector 40D, Chandigarh – 160036
+          </p>
+          <p className="font-body text-sm text-muted mb-2">
+            🕐 Mon–Sat: 10:00 AM – 2:00 PM &amp; 5:00 PM onwards
+          </p>
+          <p className="font-body text-sm text-muted mb-8">
+            📞 +91 98152 18201
           </p>
           <PearlButton to="/contact">Book an Appointment</PearlButton>
         </FadeInWhenVisible>

@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PearlButton from "@/components/ui/PearlButton";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const services = [
   "Teeth Whitening",
@@ -45,7 +44,6 @@ const AppointmentForm = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [submitted, setSubmitted] = useState(false);
-  const reduced = useReducedMotion();
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -55,9 +53,13 @@ const AppointmentForm = () => {
         case "name":
           return value.trim().length < 2 ? "Name must be at least 2 characters" : undefined;
         case "email":
-          return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "Please enter a valid email" : undefined;
+          return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+            ? "Please enter a valid email"
+            : undefined;
         case "phone":
-          return !/^[6-9]\d{9}$/.test(value) ? "Enter a valid 10-digit Indian mobile number" : undefined;
+          return !/^[6-9]\d{9}$/.test(value)
+            ? "Enter a valid 10-digit Indian mobile number"
+            : undefined;
         case "date":
           return !value ? "Please select a date" : undefined;
         case "service":
@@ -71,15 +73,13 @@ const AppointmentForm = () => {
 
   const handleBlur = (field: keyof FormData) => {
     setTouched((p) => ({ ...p, [field]: true }));
-    const err = validate(field, data[field]);
-    setErrors((p) => ({ ...p, [field]: err }));
+    setErrors((p) => ({ ...p, [field]: validate(field, data[field]) }));
   };
 
   const handleChange = (field: keyof FormData, value: string) => {
     setData((p) => ({ ...p, [field]: value }));
     if (touched[field]) {
-      const err = validate(field, value);
-      setErrors((p) => ({ ...p, [field]: err }));
+      setErrors((p) => ({ ...p, [field]: validate(field, value) }));
     }
   };
 
@@ -90,65 +90,18 @@ const AppointmentForm = () => {
     let hasError = false;
     fields.forEach((f) => {
       const err = validate(f, data[f]);
-      if (err) {
-        newErrors[f] = err;
-        hasError = true;
-      }
+      if (err) { newErrors[f] = err; hasError = true; }
     });
     setErrors(newErrors);
     setTouched({ name: true, email: true, phone: true, date: true, service: true });
-    if (!hasError) {
-      setSubmitted(true);
-    }
+    if (!hasError) setSubmitted(true);
   };
 
-  const labelVariants = {
-    resting: { y: 14, scale: 1, color: "hsl(20 4% 46%)" },
-    floating: { y: -6, scale: 0.82, color: "hsl(28 24% 34%)" },
-  };
+  const fieldClass =
+    "w-full bg-transparent border-b border-border py-2 font-body text-sm text-charcoal outline-none focus:border-primary transition-colors duration-200";
 
-  const FloatingField = ({
-    field,
-    label,
-    type = "text",
-  }: {
-    field: keyof FormData;
-    label: string;
-    type?: string;
-  }) => {
-    const [focused, setFocused] = useState(false);
-    const isActive = focused || data[field].length > 0;
-
-    return (
-      <div className="relative">
-        <motion.label
-          className="absolute left-0 origin-top-left pointer-events-none font-body text-sm"
-          variants={reduced ? undefined : labelVariants}
-          animate={isActive ? "floating" : "resting"}
-          transition={{ duration: 0.2 }}
-        >
-          {label}
-        </motion.label>
-        <input
-          type={type}
-          min={type === "date" ? today : undefined}
-          value={data[field]}
-          onChange={(e) => handleChange(field, e.target.value)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => {
-            setFocused(false);
-            handleBlur(field);
-          }}
-          className="w-full bg-transparent border-b border-border pb-2 pt-4 font-body text-sm text-charcoal outline-none focus:border-primary transition-colors duration-200"
-        />
-        {touched[field] && errors[field] && (
-          <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">
-            {errors[field]}
-          </p>
-        )}
-      </div>
-    );
-  };
+  const labelClass =
+    "block font-body text-xs font-medium uppercase tracking-[0.12em] text-muted mb-1";
 
   return (
     <AnimatePresence mode="wait">
@@ -162,8 +115,8 @@ const AppointmentForm = () => {
         >
           <h3 className="font-display text-3xl text-charcoal mb-3">Thank you!</h3>
           <p className="font-body text-muted">
-            We've received your appointment request. Our team will reach out within 24 hours to
-            confirm your booking.
+            We've received your appointment request. Dr. Bhalla's clinic will reach
+            out within 24 hours to confirm your booking.
           </p>
         </motion.div>
       ) : (
@@ -176,47 +129,105 @@ const AppointmentForm = () => {
           transition={{ duration: 0.3 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <FloatingField field="name" label="Full Name" />
-            <FloatingField field="email" label="Email Address" type="email" />
-            <FloatingField field="phone" label="Phone Number" type="tel" />
-            <FloatingField field="date" label="Preferred Date" type="date" />
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className={labelClass}>Full Name</label>
+              <input
+                id="name"
+                type="text"
+                value={data.name}
+                onChange={(e) => handleChange("name", e.target.value)}
+                onBlur={() => handleBlur("name")}
+                className={fieldClass}
+                placeholder="Raj Sharma"
+              />
+              {touched.name && errors.name && (
+                <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">{errors.name}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className={labelClass}>Email Address</label>
+              <input
+                id="email"
+                type="email"
+                value={data.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+                onBlur={() => handleBlur("email")}
+                className={fieldClass}
+                placeholder="raj@email.com"
+              />
+              {touched.email && errors.email && (
+                <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">{errors.email}</p>
+              )}
+            </div>
+
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className={labelClass}>Phone Number</label>
+              <input
+                id="phone"
+                type="tel"
+                value={data.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
+                onBlur={() => handleBlur("phone")}
+                className={fieldClass}
+                placeholder="98XXXXXXXX"
+              />
+              {touched.phone && errors.phone && (
+                <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">{errors.phone}</p>
+              )}
+            </div>
+
+            {/* Date */}
+            <div>
+              <label htmlFor="date" className={labelClass}>Preferred Date</label>
+              <input
+                id="date"
+                type="date"
+                min={today}
+                value={data.date}
+                onChange={(e) => handleChange("date", e.target.value)}
+                onBlur={() => handleBlur("date")}
+                className={fieldClass}
+              />
+              {touched.date && errors.date && (
+                <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">{errors.date}</p>
+              )}
+            </div>
           </div>
 
-          {/* Service select */}
-          <div className="relative">
-            <label className="block font-body text-xs text-muted mb-2 uppercase tracking-[0.12em]">
-              Service
-            </label>
+          {/* Service */}
+          <div>
+            <label htmlFor="service" className={labelClass}>Service</label>
             <select
+              id="service"
               value={data.service}
               onChange={(e) => handleChange("service", e.target.value)}
               onBlur={() => handleBlur("service")}
-              className="w-full bg-transparent border-b border-border pb-2 font-body text-sm text-charcoal outline-none focus:border-primary transition-colors duration-200 appearance-none cursor-pointer"
+              className={fieldClass + " cursor-pointer"}
             >
               <option value="">Select a service</option>
               {services.map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
+                <option key={s} value={s}>{s}</option>
               ))}
             </select>
             {touched.service && errors.service && (
-              <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">
-                {errors.service}
-              </p>
+              <p className="mt-1 font-body text-xs text-muted border-l-2 border-primary pl-2">{errors.service}</p>
             )}
           </div>
 
           {/* Message */}
-          <div className="relative">
-            <label className="block font-body text-xs text-muted mb-2 uppercase tracking-[0.12em]">
-              Message (optional)
-            </label>
+          <div>
+            <label htmlFor="message" className={labelClass}>Message (optional)</label>
             <textarea
+              id="message"
               value={data.message}
               onChange={(e) => handleChange("message", e.target.value)}
               rows={3}
-              className="w-full bg-transparent border-b border-border pb-2 font-body text-sm text-charcoal outline-none focus:border-primary transition-colors duration-200 resize-none"
+              className={fieldClass + " resize-none"}
+              placeholder="Any additional details or concerns..."
             />
           </div>
 

@@ -48,7 +48,7 @@ const Navbar = () => {
         style={{ backdropFilter: scrolled ? "blur(12px)" : "none" }}
       >
         <Link to="/" className="font-display text-xl font-semibold text-charcoal">
-          Pearl Dental Studio
+          Dr. Gaurav Bhalla's Dental Clinic
         </Link>
 
         {/* Desktop */}

@@ -13,11 +13,11 @@ const facilities = [
 ];
 
 const milestones = [
-  { year: "2012", title: "Founded", desc: "Pearl Dental Studio opens its doors in Sector 14, Gurugram, with a vision to reimagine dental care." },
-  { year: "2015", title: "Expanded Team", desc: "Grew to a team of four specialists covering orthodontics, implantology, cosmetic, and pediatric dentistry." },
-  { year: "2018", title: "Digital Upgrade", desc: "Introduced CBCT scanning, digital impressions, and a fully paperless patient experience." },
-  { year: "2021", title: "4,000+ Patients", desc: "Crossed the milestone of 4,000 patients treated with a 98% satisfaction rate." },
-  { year: "2024", title: "Studio Redesign", desc: "Completed a full clinic renovation focused on patient comfort, natural light, and state-of-the-art operatories." },
+  { year: "2004", title: "Qualified", desc: "Dr. Gaurav Bhalla completes BDS from Dr. B.R. Ambedkar Institute of Dental Sciences & Hospital, Patna." },
+  { year: "2004", title: "Founded", desc: "Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre opens its doors in Sector 40D, Chandigarh, with a vision to reimagine dental care." },
+  { year: "2010", title: "Growing Trust", desc: "Built a loyal patient base across Chandigarh through honest, patient-first dental care and word-of-mouth reputation." },
+  { year: "2018", title: "Digital Upgrade", desc: "Introduced advanced imaging and digital diagnostics to deliver more precise and comfortable treatment." },
+  { year: "2025", title: "21 Years & Counting", desc: "Over two decades of dedicated dental care, with thousands of happy patients and a 4.2★ Google rating." },
 ];
 
 const containerVariants = {
@@ -48,20 +48,19 @@ const About = () => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           <FadeInWhenVisible delay={0.1}>
             <p className="font-body text-base text-muted leading-relaxed">
-              Pearl Dental Studio was born from a simple observation: most dental
-              clinics prioritize throughput over people. We set out to build
-              something different — a space where patients aren't rushed, where
-              treatment plans are discussed honestly, and where clinical
-              excellence is a given, not a selling point.
+              Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre was built on a
+              simple belief: every patient deserves unhurried attention, honest
+              guidance, and treatment that truly fits their life. With over 21 years
+              of experience, Dr. Bhalla has built a practice where clinical excellence
+              is a given — not a selling point.
             </p>
           </FadeInWhenVisible>
           <FadeInWhenVisible delay={0.2}>
             <p className="font-body text-base text-muted leading-relaxed">
-              Our team of four specialists brings together decades of focused
-              expertise. But beyond credentials, what unites us is a shared
-              belief: that the best dentistry happens when patients feel heard,
-              informed, and genuinely cared for. Every decision we make — from
-              clinic design to treatment protocols — starts with this principle.
+              Located in the heart of Sector 40D, Chandigarh, our clinic is designed
+              to make every visit calm and comfortable. We will always attempt to
+              answer your questions thoroughly so that you never have to worry
+              needlessly — and we explain complicated things clearly and simply.
             </p>
           </FadeInWhenVisible>
         </div>
@@ -78,33 +77,33 @@ const About = () => (
           </h2>
         </FadeInWhenVisible>
 
-        {/* Image grid */}
+        {/* Image grid — plain divs, no FadeInWhenVisible wrapper interfering with height */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
-          <FadeInWhenVisible className="md:col-span-2 aspect-[16/10] overflow-hidden rounded-lg">
+          <div className="md:col-span-2 aspect-[16/10] overflow-hidden rounded-lg">
             <img
-              src="https://images.unsplash.com/photo-1629909615957-be38d6ed6e9a?w=900&q=80"
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=100"
               alt="Dental operatory with modern equipment and overhead lighting"
               className="w-full h-full object-cover"
               loading="lazy"
             />
-          </FadeInWhenVisible>
+          </div>
           <div className="flex flex-col gap-4">
-            <FadeInWhenVisible delay={0.1} className="flex-1 overflow-hidden rounded-lg">
+            <div className="flex-1 overflow-hidden rounded-lg" style={{ minHeight: "160px" }}>
               <img
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
                 alt="Reception area with warm lighting and comfortable seating"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-            </FadeInWhenVisible>
-            <FadeInWhenVisible delay={0.2} className="flex-1 overflow-hidden rounded-lg">
+            </div>
+            <div className="flex-1 overflow-hidden rounded-lg" style={{ minHeight: "160px" }}>
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80"
-                alt="Dentist reviewing digital X-ray with patient"
+                alt="Dr. Gaurav Bhalla reviewing digital X-ray with patient"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-            </FadeInWhenVisible>
+            </div>
           </div>
         </div>
 

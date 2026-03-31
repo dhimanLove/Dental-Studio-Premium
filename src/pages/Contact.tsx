@@ -27,25 +27,17 @@ const Contact = () => (
                   Address
                 </h3>
                 <p className="font-body text-base text-charcoal">
-                  Pearl Dental Studio<br />
-                  Sector 14, Gurugram<br />
-                  Haryana 122001
+                  Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre<br />
+                  SCO 218, 1st Floor, Sector 40D<br />
+                  Chandigarh – 160036
                 </p>
               </div>
               <div>
                 <h3 className="font-body text-xs font-medium uppercase tracking-[0.12em] text-muted mb-2">
                   Phone
                 </h3>
-                <a href="tel:+919876543210" className="font-body text-base text-charcoal hover:text-primary transition-colors">
-                  +91 98765 43210
-                </a>
-              </div>
-              <div>
-                <h3 className="font-body text-xs font-medium uppercase tracking-[0.12em] text-muted mb-2">
-                  Email
-                </h3>
-                <a href="mailto:hello@pearldentalstudio.in" className="font-body text-base text-charcoal hover:text-primary transition-colors">
-                  hello@pearldentalstudio.in
+                <a href="tel:+919815218201" className="font-body text-base text-charcoal hover:text-primary transition-colors">
+                  +91 98152 18201
                 </a>
               </div>
               <div>
@@ -53,8 +45,9 @@ const Contact = () => (
                   Hours
                 </h3>
                 <p className="font-body text-base text-charcoal">
-                  Mon – Sat: 9:00 AM – 7:00 PM<br />
-                  Sunday: 10:00 AM – 2:00 PM
+                  Mon – Sat: 10:00 AM – 2:00 PM<br />
+                  Mon – Sat: 5:00 PM onwards<br />
+                  Sunday: Closed
                 </p>
               </div>
             </div>
@@ -72,8 +65,8 @@ const Contact = () => (
     <section className="pb-0">
       <FadeInWhenVisible>
         <iframe
-          title="Pearl Dental Studio Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0!2d77.02!3d28.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSector+14%2C+Gurugram!5e0!3m2!1sen!2sin!4v1"
+          title="Dr. Gaurav Bhalla's Dental Clinic Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.23!2d76.7794!3d30.7046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ef96b%3A0xa5ff67f9527df77b!2sDr.%20Gaurav%20Bhalla&#39;s%20Dental%20Clinic%20%26%20Smile%20Design%20Centre!5e0!3m2!1sen!2sin!4v1"
           width="100%"
           height="450"
           style={{ border: 0 }}

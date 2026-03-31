@@ -19,13 +19,6 @@ const doctors = [
     image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80",
   },
   {
-    name: "Dr. Kavya Iyer",
-    role: "Cosmetic Dentist",
-    experience: "10 years",
-    quote: "Cosmetic dentistry is as much about listening as it is about skill. I design smiles people recognise as their own.",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964d31e?w=600&q=80",
-  },
-  {
     name: "Dr. Rahul Tomar",
     role: "Pediatric Specialist",
     experience: "9 years",

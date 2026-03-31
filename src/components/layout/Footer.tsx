@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-4">
-              Pearl Dental Studio
+              Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre
             </h3>
             <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">
               Modern clinical care with a calm, comfortable experience — built
@@ -70,25 +70,20 @@ const Footer = () => {
               Get in Touch
             </h4>
             <ul className="space-y-3 font-body text-sm text-primary-foreground/60">
-              <li>Sector 14, Gurugram, Haryana 122001</li>
+              <li>SCO 218, 1st Floor, Sector 40D, Chandigarh – 160036</li>
               <li>
-                <a href="tel:+919876543210" className="hover:text-primary-foreground transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919815218201" className="hover:text-primary-foreground transition-colors">
+                  +91 98152 18201
                 </a>
               </li>
-              <li>
-                <a href="mailto:hello@pearldentalstudio.in" className="hover:text-primary-foreground transition-colors">
-                  hello@pearldentalstudio.in
-                </a>
-              </li>
-              <li>Mon–Sat: 9am–7pm</li>
+              <li>Mon–Sat: 10am–2pm &amp; 5pm onwards</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} Pearl Dental Studio. All rights reserved.
+            © {new Date().getFullYear()} Dr. Gaurav Bhalla's Dental Clinic. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="font-body text-xs text-primary-foreground/40 hover:text-primary-foreground transition-colors">
