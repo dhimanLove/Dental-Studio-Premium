@@ -27,17 +27,17 @@ const Contact = () => (
                   Address
                 </h3>
                 <p className="font-body text-base text-charcoal">
-                  Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre<br />
-                  SCO 218, 1st Floor, Sector 40D<br />
-                  Chandigarh – 160036
+                  OM DENTAL CLINIC AND IMPLANT CENTRE<br />
+                  Shop No. 3, Opposite Huda Market, Sector 7 Extension,<br />
+                  Gurugram, Haryana 122001
                 </p>
               </div>
               <div>
                 <h3 className="font-body text-xs font-medium uppercase tracking-[0.12em] text-muted mb-2">
                   Phone
                 </h3>
-                <a href="tel:+919815218201" className="font-body text-base text-charcoal hover:text-primary transition-colors">
-                  +91 98152 18201
+                <a href="tel:+919911098695" className="font-body text-base text-charcoal hover:text-primary transition-colors">
+                  +91 99110 98695
                 </a>
               </div>
               <div>
@@ -66,7 +66,7 @@ const Contact = () => (
       <FadeInWhenVisible>
         <iframe
           title="Dr. Gaurav Bhalla's Dental Clinic Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.23!2d76.7794!3d30.7046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ef96b%3A0xa5ff67f9527df77b!2sDr.%20Gaurav%20Bhalla&#39;s%20Dental%20Clinic%20%26%20Smile%20Design%20Centre!5e0!3m2!1sen!2sin!4v1"
+           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d379297.3374289952!2d76.51244647449374!3d28.4792732490939!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d17acd4eea2bd%3A0x6e26483b601460e5!2sOM%20Dental%20Clinic%20Implant%20Centre%20Dr.%20Mohit%20Gupta!5e0!3m2!1sen!2sin!4v1775109347295!5m2!1sen!2sin"
           width="100%"
           height="450"
           style={{ border: 0 }}

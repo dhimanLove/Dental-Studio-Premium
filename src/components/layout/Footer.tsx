@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-4">
-              Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre
+              OM DENTAL CLINIC AND IMPLANT CENTRE
             </h3>
             <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">
               Modern clinical care with a calm, comfortable experience — built
@@ -70,20 +70,20 @@ const Footer = () => {
               Get in Touch
             </h4>
             <ul className="space-y-3 font-body text-sm text-primary-foreground/60">
-              <li>SCO 218, 1st Floor, Sector 40D, Chandigarh – 160036</li>
+              <li>Shop No. 3, Opposite Huda Market, Sector 7 Extension, Gurugram, Haryana 122001 </li>
               <li>
-                <a href="tel:+919815218201" className="hover:text-primary-foreground transition-colors">
-                  +91 98152 18201
+                <a href="tel:+919911098695" className="hover:text-primary-foreground transition-colors">
+                  +91 9911098695
                 </a>
               </li>
-              <li>Mon–Sat: 10am–2pm &amp; 5pm onwards</li>
+              <li>Open, Closes 9 PM &amp; 5pm onwards</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} Dr. Gaurav Bhalla's Dental Clinic. All rights reserved.
+            © {new Date().getFullYear()} OM DENTAL CLINIC AND IMPLANT CENTRE. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="font-body text-xs text-primary-foreground/40 hover:text-primary-foreground transition-colors">

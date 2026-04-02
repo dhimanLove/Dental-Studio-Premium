@@ -13,11 +13,11 @@ const facilities = [
 ];
 
 const milestones = [
-  { year: "2004", title: "Qualified", desc: "Dr. Gaurav Bhalla completes BDS from Dr. B.R. Ambedkar Institute of Dental Sciences & Hospital, Patna." },
-  { year: "2004", title: "Founded", desc: "Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre opens its doors in Sector 40D, Chandigarh, with a vision to reimagine dental care." },
-  { year: "2010", title: "Growing Trust", desc: "Built a loyal patient base across Chandigarh through honest, patient-first dental care and word-of-mouth reputation." },
-  { year: "2018", title: "Digital Upgrade", desc: "Introduced advanced imaging and digital diagnostics to deliver more precise and comfortable treatment." },
-  { year: "2025", title: "21 Years & Counting", desc: "Over two decades of dedicated dental care, with thousands of happy patients and a 4.2★ Google rating." },
+  { year: "2010", title: "Qualified", desc: "Dr. Mohit Gupta completes his dental degree and begins his journey dedicated to providing compassionate, high-quality dental care." },
+  { year: "2010", title: "Founded", desc: "OM Dental Clinic Implant Centre opens its doors in Sector 7 Extension, Gurugram, with a vision to make advanced dental care accessible and comfortable." },
+  { year: "2015", title: "Growing Trust", desc: "Built a loyal patient base across Gurugram through honest, patient-first care and a strong word-of-mouth reputation." },
+  { year: "2019", title: "Implant Specialisation", desc: "Expanded expertise in dental implants and complex restorative procedures, becoming a trusted name for implant care in Gurgaon." },
+  { year: "2025", title: "118 Five-Star Reviews", desc: "A milestone built entirely on patient trust — over 118 five-star Google reviews from families across Sector 7 and Gurugram." },
 ];
 
 const containerVariants = {
@@ -42,25 +42,24 @@ const About = () => (
         <FadeInWhenVisible>
           <SectionLabel>Our Philosophy</SectionLabel>
           <h1 className="font-display text-[clamp(42px,5vw,80px)] text-charcoal mb-12 max-w-4xl">
-            Dental care that respects your time, your comfort, and your trust
+            Dental care that respects your comfort, your time, and your trust
           </h1>
         </FadeInWhenVisible>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           <FadeInWhenVisible delay={0.1}>
             <p className="font-body text-base text-muted leading-relaxed">
-              Dr. Gaurav Bhalla's Dental Clinic & Smile Design Centre was built on a
-              simple belief: every patient deserves unhurried attention, honest
-              guidance, and treatment that truly fits their life. With over 21 years
-              of experience, Dr. Bhalla has built a practice where clinical excellence
-              is a given — not a selling point.
+              OM Dental Clinic Implant Centre was founded on a simple belief: every
+              patient deserves to feel heard, comfortable, and confident in their
+              treatment. Dr. Mohit Gupta brings precision, patience, and genuine care
+              to every procedure — from a routine cleaning to a full dental implant.
             </p>
           </FadeInWhenVisible>
           <FadeInWhenVisible delay={0.2}>
             <p className="font-body text-base text-muted leading-relaxed">
-              Located in the heart of Sector 40D, Chandigarh, our clinic is designed
-              to make every visit calm and comfortable. We will always attempt to
-              answer your questions thoroughly so that you never have to worry
-              needlessly — and we explain complicated things clearly and simply.
+              Located in Sector 7 Extension, Gurugram, our clinic is designed to put
+              patients at ease from the moment they walk in. We explain every procedure
+              clearly, maintain the highest standards of hygiene and sterilization, and
+              ensure that no patient ever leaves with unanswered questions.
             </p>
           </FadeInWhenVisible>
         </div>
@@ -77,7 +76,6 @@ const About = () => (
           </h2>
         </FadeInWhenVisible>
 
-        {/* Image grid — plain divs, no FadeInWhenVisible wrapper interfering with height */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-14">
           <div className="md:col-span-2 aspect-[16/10] overflow-hidden rounded-lg">
             <img
@@ -99,7 +97,7 @@ const About = () => (
             <div className="flex-1 overflow-hidden rounded-lg" style={{ minHeight: "160px" }}>
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80"
-                alt="Dr. Gaurav Bhalla reviewing digital X-ray with patient"
+                alt="Dr. Mohit Gupta reviewing digital X-ray with patient"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -107,7 +105,6 @@ const About = () => (
           </div>
         </div>
 
-        {/* Feature list */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
@@ -146,7 +143,6 @@ const About = () => (
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          {/* Vertical line */}
           <div className="absolute left-[22px] lg:left-[28px] top-2 bottom-2 w-[1px] bg-border" />
 
           {milestones.map((m, i) => (
