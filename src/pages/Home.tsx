@@ -68,7 +68,7 @@ function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           {/* Text — 60% */}
           <div className="lg:col-span-3">
-            <SectionLabel>Om Dental Clinic And Implant Centre</SectionLabel>
+            <SectionLabel> Hope Dental Hospital & Wellness Centre</SectionLabel>
             <h1 className="text-[clamp(52px,6vw,96px)] leading-[1.08] font-display font-semibold text-charcoal mb-6">
               {reduced ? (
                 "Your smile, designed with precision."
@@ -93,7 +93,7 @@ function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Dr. Mohit Gupta combines modern clinical care with a calm,
+              Dr. Himangi Dubey combines modern clinical care with a calm,
               comfortable experience — built for patients who value both health
               and time.
             </motion.p>
@@ -242,9 +242,9 @@ function AboutPreview() {
               Care built on trust, not just technique
             </h2>
             <p className="font-body text-base text-muted leading-relaxed mb-4">
-              Dr. Mohit Gupta is a trusted name in dental care in Gurugram, known for
-              his gentle approach, clear communication, and commitment to making every
-              patient feel at ease. At OM Dental Clinic Implant Centre, we believe
+              Dr. Himangi Dubey is a trusted name in dental care in Lucknow, known for
+              her gentle approach, clear communication, and commitment to making every
+              patient feel at ease. At  Hope Dental Hospital & Wellness Centre, we believe
               great dentistry starts with trust.
             </p>
             <p className="font-body text-base text-muted leading-relaxed mb-8">
@@ -267,25 +267,25 @@ function AboutPreview() {
 
 const testimonials = [
   {
-    quote: "Amazing dentist with abundant knowledge and long experience. Highly recommend Dr. Mohit to everyone.",
+    quote: "Amazing dentist with abundant knowledge and long experience. Highly recommend Dr. Himangi to everyone.",
     name: "Google Review",
     treatment: "General Dentistry",
     rating: 5,
   },
   {
-    quote: "He insisted my tooth could be saved and started treatment. Over the course of 1.5 months, he worked tirelessly to preserve it.",
+    quote: "She insisted my tooth could be saved and started treatment. Over the course of 1.5 months, he worked tirelessly to preserve it.",
     name: "Ekant Kumar",
     treatment: "Tooth Restoration",
     rating: 5,
   },
   {
-    quote: "He is a gem of a person. My friend was suffering from severe toothache at the airport — Dr. Mohit helped him out with a prescription, free of cost.",
+    quote: "She is a gem of a person. My friend was suffering from severe toothache at the airport — Dr. Himangi helped him out with a prescription, free of cost.",
     name: "Amy Plays Groove",
     treatment: "Emergency Care",
     rating: 5,
   },
   {
-    quote: "Amazing Dr. Mohit with expertise in all tooth issues. Treated my wife well with the best support. Strongly recommended.",
+    quote: "Amazing Dr. Himangi with expertise in all tooth issues. Treated my wife well with the best support. Strongly recommended.",
     name: "Rohit Thakur",
     treatment: "General Dentistry",
     rating: 5,
@@ -343,13 +343,13 @@ function CTABanner() {
             Schedule your visit today and experience dental care the way it should be.
           </p>
           <p className="font-body text-sm text-muted mb-2">
-            Shop No. 3, Opposite Huda Market, Sector 7 Extension, Gurugram, Haryana 122001
+            House No. 1779, Near Hanskhera Tiraha, Sadrauna Marg, Behind Gokul Gram Colony, Near Brahm Baba Mandir, Para, Munnu Khera, Lucknow, Uttar Pradesh – 226008
           </p>
           <p className="font-body text-sm text-muted mb-2">
-            🕐 Mon–Sat: 10:00 AM – 2:00 PM &amp; 5:00 PM onwards
+            Open till 9:00 PM
           </p>
           <p className="font-body text-sm text-muted mb-8">
-            📞 +91 99110 98695
+            📞 +91 79052 87870
           </p>
           <PearlButton to="/contact">Book an Appointment</PearlButton>
         </FadeInWhenVisible>

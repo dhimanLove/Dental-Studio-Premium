@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-4">
-              OM DENTAL CLINIC AND IMPLANT CENTRE
+              Hope Dental Hospital & Wellness Centre
             </h3>
             <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">
               Modern clinical care with a calm, comfortable experience — built
@@ -70,10 +70,10 @@ const Footer = () => {
               Get in Touch
             </h4>
             <ul className="space-y-3 font-body text-sm text-primary-foreground/60">
-              <li>Shop No. 3, Opposite Huda Market, Sector 7 Extension, Gurugram, Haryana 122001 </li>
+              <li>House No. 1779, Near Hanskhera Tiraha, Sadrauna Marg, Behind Gokul Gram Colony, Near Brahm Baba Mandir, Para, Munnu Khera, Lucknow, Uttar Pradesh – 226008 </li>
               <li>
                 <a href="tel:+919911098695" className="hover:text-primary-foreground transition-colors">
-                  +91 9911098695
+                  +91 79052 87870
                 </a>
               </li>
               <li>Open, Closes 9 PM &amp; 5pm onwards</li>
@@ -83,7 +83,7 @@ const Footer = () => {
 
         <div className="mt-14 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-xs text-primary-foreground/40">
-            © {new Date().getFullYear()} OM DENTAL CLINIC AND IMPLANT CENTRE. All rights reserved.
+            © {new Date().getFullYear()} Hope Dental Hospital & Wellness Centre. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="font-body text-xs text-primary-foreground/40 hover:text-primary-foreground transition-colors">

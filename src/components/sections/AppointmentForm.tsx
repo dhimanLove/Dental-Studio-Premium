@@ -115,7 +115,7 @@ const AppointmentForm = () => {
         >
           <h3 className="font-display text-3xl text-charcoal mb-3">Thank you!</h3>
           <p className="font-body text-muted">
-            We've received your appointment request. Dr. Bhalla's clinic will reach
+            We've received your appointment request. We will reach
             out within 24 hours to confirm your booking.
           </p>
         </motion.div>

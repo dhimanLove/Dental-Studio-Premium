@@ -27,9 +27,8 @@ const Contact = () => (
                   Address
                 </h3>
                 <p className="font-body text-base text-charcoal">
-                  OM DENTAL CLINIC AND IMPLANT CENTRE<br />
-                  Shop No. 3, Opposite Huda Market, Sector 7 Extension,<br />
-                  Gurugram, Haryana 122001
+                  Hope Dental Hospital & Wellness Centre<br />
+                  House No. 1779, Near Hanskhera Tiraha, Sadrauna Marg, Behind Gokul Gram Colony, Near Brahm Baba Mandir, Para, Munnu Khera, Lucknow, Uttar Pradesh – 226008
                 </p>
               </div>
               <div>
@@ -37,7 +36,7 @@ const Contact = () => (
                   Phone
                 </h3>
                 <a href="tel:+919911098695" className="font-body text-base text-charcoal hover:text-primary transition-colors">
-                  +91 99110 98695
+                  +91 79052 87870
                 </a>
               </div>
               <div>
@@ -45,8 +44,7 @@ const Contact = () => (
                   Hours
                 </h3>
                 <p className="font-body text-base text-charcoal">
-                  Mon – Sat: 10:00 AM – 2:00 PM<br />
-                  Mon – Sat: 5:00 PM onwards<br />
+                 Open till 9:00 PM
                   Sunday: Closed
                 </p>
               </div>
@@ -63,20 +61,19 @@ const Contact = () => (
 
     {/* Map */}
     <section className="pb-0">
-      <FadeInWhenVisible>
-        <iframe
-          title="Dr. Gaurav Bhalla's Dental Clinic Location"
-           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d379297.3374289952!2d76.51244647449374!3d28.4792732490939!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d17acd4eea2bd%3A0x6e26483b601460e5!2sOM%20Dental%20Clinic%20Implant%20Centre%20Dr.%20Mohit%20Gupta!5e0!3m2!1sen!2sin!4v1775109347295!5m2!1sen!2sin"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="w-full"
-        />
-      </FadeInWhenVisible>
-    </section>
+  <FadeInWhenVisible>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.611635599368!2d80.85124167443759!3d26.820491964049427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bffdf75b63aff%3A0xfa60f867519ab7c1!2sHope%20Dental%20Hospital%20%26%20Wellness%20Centre!5e0!3m2!1sen!2sin!4v1775729140041!5m2!1sen!2sin"
+      width="100%"
+      height="450"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="w-full rounded-lg"
+    ></iframe>
+  </FadeInWhenVisible>
+</section>
   </motion.div>
 );
 

@@ -125,7 +125,7 @@ const Services = () => (
           </h1>
           <p className="font-body text-base text-muted max-w-xl mb-16">
             From routine check-ups to advanced restorative work, every treatment
-            at OM Dental Clinic & Implant Centre is delivered with precision, care, and
+            at Hope Dental Hospital & Wellness Centre is delivered with precision, care, and
             transparency.
           </p>
         </FadeInWhenVisible>

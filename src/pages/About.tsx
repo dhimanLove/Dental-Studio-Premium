@@ -4,20 +4,35 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import PearlButton from "@/components/ui/PearlButton";
 
 const facilities = [
-  "Digital X-ray Imaging",
+  "Laser Dentistry",
+  "Wheelchair Accessible Entrance & Exit",
   "Advanced Sterilization Protocol",
   "Private Consultation Rooms",
-  "Intraoral Camera Technology",
-  "CBCT Scanner",
   "Comfortable Waiting Lounge",
+  "Digital Dental Care",
 ];
 
 const milestones = [
-  { year: "2010", title: "Qualified", desc: "Dr. Mohit Gupta completes his dental degree and begins his journey dedicated to providing compassionate, high-quality dental care." },
-  { year: "2010", title: "Founded", desc: "OM Dental Clinic Implant Centre opens its doors in Sector 7 Extension, Gurugram, with a vision to make advanced dental care accessible and comfortable." },
-  { year: "2015", title: "Growing Trust", desc: "Built a loyal patient base across Gurugram through honest, patient-first care and a strong word-of-mouth reputation." },
-  { year: "2019", title: "Implant Specialisation", desc: "Expanded expertise in dental implants and complex restorative procedures, becoming a trusted name for implant care in Gurgaon." },
-  { year: "2025", title: "118 Five-Star Reviews", desc: "A milestone built entirely on patient trust — over 118 five-star Google reviews from families across Sector 7 and Gurugram." },
+  {
+    year: "Founded",
+    title: "Hope Dental Hospital Established",
+    desc: "Hope Dental Hospital & Wellness Centre was founded with a mission to deliver compassionate, modern, and affordable dental care to every patient.",
+  },
+  {
+    year: "Patient First",
+    title: "Building Trust",
+    desc: "Known for its caring approach, the clinic quickly earned the trust of patients across Lucknow through honest advice and quality treatments.",
+  },
+  {
+    year: "Excellence",
+    title: "5-Star Rated Care",
+    desc: "Achieved a 5.0/5 rating with 120+ satisfied patients, reflecting exceptional service, cleanliness, and patient satisfaction.",
+  },
+  {
+    year: "Today",
+    title: "Modern Dental Experience",
+    desc: "Continuing to provide advanced dental treatments with a focus on comfort, transparency, and patient education.",
+  },
 ];
 
 const containerVariants = {
@@ -27,7 +42,11 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 const About = () => (
@@ -42,24 +61,18 @@ const About = () => (
         <FadeInWhenVisible>
           <SectionLabel>Our Philosophy</SectionLabel>
           <h1 className="font-display text-[clamp(42px,5vw,80px)] text-charcoal mb-12 max-w-4xl">
-            Dental care that respects your comfort, your time, and your trust
+            Compassionate dental care focused on your comfort, trust, and confidence
           </h1>
         </FadeInWhenVisible>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           <FadeInWhenVisible delay={0.1}>
             <p className="font-body text-base text-muted leading-relaxed">
-              OM Dental Clinic Implant Centre was founded on a simple belief: every
-              patient deserves to feel heard, comfortable, and confident in their
-              treatment. Dr. Mohit Gupta brings precision, patience, and genuine care
-              to every procedure — from a routine cleaning to a full dental implant.
+              Hope Dental Hospital & Wellness Centre is built on a patient-first approach. Under the care of Dr. Himangi Dubey, every treatment is delivered with precision, empathy, and clarity — ensuring patients feel comfortable and confident at every step.
             </p>
           </FadeInWhenVisible>
           <FadeInWhenVisible delay={0.2}>
             <p className="font-body text-base text-muted leading-relaxed">
-              Located in Sector 7 Extension, Gurugram, our clinic is designed to put
-              patients at ease from the moment they walk in. We explain every procedure
-              clearly, maintain the highest standards of hygiene and sterilization, and
-              ensure that no patient ever leaves with unanswered questions.
+              Located in Lucknow, our clinic offers a clean, modern, and welcoming environment. We are proud to be a women-owned and LGBTQ+ friendly space where every patient is respected and cared for with the highest standards of hygiene and professionalism.
             </p>
           </FadeInWhenVisible>
         </div>
@@ -72,7 +85,7 @@ const About = () => (
         <FadeInWhenVisible>
           <SectionLabel>Our Facilities</SectionLabel>
           <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-14">
-            Built for precision and comfort
+            Advanced care in a comfortable environment
           </h2>
         </FadeInWhenVisible>
 
@@ -80,7 +93,7 @@ const About = () => (
           <div className="md:col-span-2 aspect-[16/10] overflow-hidden rounded-lg">
             <img
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=100"
-              alt="Dental operatory with modern equipment and overhead lighting"
+              alt="Modern dental clinic"
               className="w-full h-full object-cover"
               loading="lazy"
             />
@@ -89,7 +102,7 @@ const About = () => (
             <div className="flex-1 overflow-hidden rounded-lg" style={{ minHeight: "160px" }}>
               <img
                 src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80"
-                alt="Reception area with warm lighting and comfortable seating"
+                alt="Reception area"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -97,7 +110,7 @@ const About = () => (
             <div className="flex-1 overflow-hidden rounded-lg" style={{ minHeight: "160px" }}>
               <img
                 src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80"
-                alt="Dr. Mohit Gupta reviewing digital X-ray with patient"
+                alt="Dental consultation"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -113,11 +126,7 @@ const About = () => (
           viewport={{ once: true }}
         >
           {facilities.map((f) => (
-            <motion.div
-              key={f}
-              variants={itemVariants}
-              className="flex items-center gap-3"
-            >
+            <motion.div key={f} variants={itemVariants} className="flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-secondary flex-shrink-0" />
               <span className="font-body text-sm text-charcoal">{f}</span>
             </motion.div>
@@ -132,7 +141,7 @@ const About = () => (
         <FadeInWhenVisible>
           <SectionLabel>Our Journey</SectionLabel>
           <h2 className="font-display text-[clamp(36px,4vw,64px)] text-charcoal mb-14">
-            Milestones that shaped us
+            Built on trust and patient satisfaction
           </h2>
         </FadeInWhenVisible>
 
@@ -146,11 +155,7 @@ const About = () => (
           <div className="absolute left-[22px] lg:left-[28px] top-2 bottom-2 w-[1px] bg-border" />
 
           {milestones.map((m, i) => (
-            <motion.div
-              key={i}
-              variants={itemVariants}
-              className="flex gap-8 lg:gap-12 relative"
-            >
+            <motion.div key={i} variants={itemVariants} className="flex gap-8 lg:gap-12 relative">
               <div className="flex flex-col items-center flex-shrink-0">
                 <span className="w-[10px] h-[10px] rounded-full bg-primary relative z-10" />
               </div>
@@ -170,8 +175,8 @@ const About = () => (
         </motion.div>
 
         <FadeInWhenVisible className="mt-16">
-          <PearlButton to="/team" variant="ghost">
-            Meet Our Team
+          <PearlButton to="/contact" variant="ghost">
+            Contact Us
           </PearlButton>
         </FadeInWhenVisible>
       </div>
